@@ -113,6 +113,7 @@ from settingsmanagers.agenda.friday import (
     SettingsManagerAgendaFriday)  # FRIDAY
 from settingsmanagers.agenda.saturday import (
     SettingsManagerAgendaSaturday)  # SATURDAY
+from settingsmanagers.lilys_widgets import SettingsManagerLilysWidgets
 # Formatters
 from formatters.colors.highlight import HighlightColorFormatter
 from formatters.colors.color_text import ColorTextFormatter
@@ -141,10 +142,8 @@ class TableInputDialog(QDialog):
         columns_input (QLineEdit): Input field for the amount columns.
         ok_button (QPushButton): OK button for accepting the input.
         cancel_button (QPushButton): Cancel button for rejecting the input.
-
-    Methods:
-        get_dimensions(): Get the dimensions entered by the user.
     """
+    
     def __init__(self,
                  parent=None):
         super().__init__(parent)
@@ -274,6 +273,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         self.settings_manager_thursday = SettingsManagerAgendaThursday()
         self.settings_manager_friday = SettingsManagerAgendaFriday()
         self.settings_manager_saturday = SettingsManagerAgendaSaturday()
+        self.settings_manager_lilys_widgets = SettingsManagerLilysWidgets()
         self.text_formatter_color = ColorTextFormatter()
         self.text_formatter_bold = BoldTextFormatter()
         self.text_formatter_strikethrough = StrikeTextFormatter()
@@ -313,21 +313,15 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         self.open_to_date()
         self.highlight_current_date()
         self.restore_visibility_state()
-        self.auto_date_time_widgets()        
-        self.calculate_total_hours_slept()        
-        self.init_hydration_tracker()        
+        self.auto_date_time_widgets()
+        
+        self.calculate_total_hours_slept()
+        
+        self.init_hydration_tracker()
+        
         self.slider_set_spinbox()
     
     def sort_tables_by_date_desc(self):
-        """
-        Sorts the table views in descending order based on the date column.
-
-        Args:
-            self: The instance of the class.
-
-        Returns:
-            None
-        """
         table_views = [self.wefe_tableview, self.cspr_tableview, self.mdmmr_tableview,
                        self.sleep_tableview, self.total_hours_slept_tableview,
                        self.woke_up_like_tableview, self.sleep_quality_tableview, self.shower_table,
@@ -345,7 +339,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
     def commits_setup(self):
         """
         Sets up the methods with their buttons/actions to commit data relevant to the module. 
-            
+        
         This method calls several other methods to set up commits for different activities,
         such as sleep, total hours, woke up like, sleep quality, diet data, shower, exercise,
         teethbrush, lily diet data, lily mood data, lily walk, lily in room, lily notes data,
@@ -421,10 +415,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             logger.error(f"An error occurred in on_page_changed {e}", exc_info=True)
     
     def close_app(self):
-        """
-        Closes the application.
-        """
-        self.close()
         self.close()
     
     def save_visibility_state(self,
@@ -443,21 +433,19 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         settings = QSettings(tkc.ORGANIZATION_NAME, tkc.APPLICATION_NAME)
         settings.setValue(key, state)
     
-    def restore_visibility_state(self):        
-        def restore_visibility_state(self):
-            """
-            Restores the visibility state of the week frame based on the stored settings.
+    def restore_visibility_state(self):
+        """
+        Restores the visibility state of various UI elements based on the saved settings.
 
-            The visibility state of the week frame is retrieved from the stored settings using the key 'week_frame'.
-            If the value is not found in the settings, the default value of False is used.
-            The retrieved value is then set as the visibility state of the week frame.
+        The visibility state of the following UI elements will be restored:
+        - week_frame
 
-            Parameters:
-                self (App): The current instance of the App class.
+        The visibility state is retrieved from the saved settings using QSettings.
 
-            Returns:
-                None
-            """
+        Returns:
+            None
+        """
+        
         self.week_frame.setVisible(
             self.settings.value(
                 'week_frame',
@@ -861,8 +849,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             
             # Loop through the dictionary and connect each action to its button.
             for action, button in action_to_button.items():
-                action.triggered.connect(lambda checked,
-                                                b=button: b.setChecked(True))
+                action.triggered.connect(lambda checked, b=button: b.setChecked(True))
         except Exception as e:
             logger.error(f"An error occurred when using actions checks buttons {e}",
                          exc_info=True)
@@ -1065,20 +1052,20 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         self.switch_page(
             self.bds_page,
             290,
-            325
+            320
         )
     
     def switch_lilys_mod(self):
         self.switch_page(
             self.lilys_mod,
-            300,
-            330
+            290,
+            320
         )
     
     def switch_to_mental_page(self):
         self.switch_page(
             self.mentalpage,
-            300,
+            290,
             330
         )
     
@@ -1146,6 +1133,9 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             logger.error(f"{e}")
     
     def auto_date_time_widgets(self):
+        """
+        Initializes date and time widgets with current date and time values.
+        """
         try:
             widget_date_edit = [
                 self.mmdmr_date,
@@ -1295,8 +1285,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             # Main Stack Navigation
             for action, page in mainStackNavvy.items():
                 action.triggered.connect(
-                    lambda _,
-                           p=page: change_mainStack(self.mainStack, p))
+                    lambda _, p=page: change_mainStack(self.mainStack, p))
         
         except Exception as e:
             logger.error(f"An error has occurred: {e}", exc_info=True)
@@ -1307,6 +1296,9 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
     # ##########################################################################################
     # ##########################################################################################
     def add_sunday_data(self):
+        """
+        Connects the 'triggered' signal of actionSunday to the agenda_data_sunday function with the necessary arguments.
+        """
         try:
             self.actionSunday.triggered.connect(lambda: agenda_data_sunday(self, {
                 "sun_date": "sun_date", "sun_note_one": "sun_note_one", "model": "sun_model",
@@ -2209,42 +2201,17 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 self.sat_note_one,
             )
             
-            # TODO: Set these up with a sexy settingsManager module k boo(self? ok)
-            self.settings.setValue(
-                'lily_time_in_room_slider',
-                self.lily_time_in_room_slider.value())
-            
-            self.settings.setValue(
-                'lily_mood_slider',
-                self.lily_mood_slider.value())
-            
-            self.settings.setValue(
-                'lily_mood_activity_slider',
-                self.lily_mood_activity_slider.value())
-            
-            self.settings.setValue(
-                'lily_energy_slider',
-                self.lily_energy_slider.value())
-            
-            self.settings.setValue(
-                'lily_time_in_room',
-                self.lily_time_in_room.value())
-            
-            self.settings.setValue(
-                'lily_mood',
-                self.lily_mood.value())
-            
-            self.settings.setValue(
-                'lily_activity',
-                self.lily_activity.value())
-            
-            self.settings.setValue(
-                'lily_energy',
-                self.lily_energy.value())
-            
-            self.settings.setValue(
-                'lily_notes',
-                self.lily_notes.toHtml())
+            self.settings_manager_lilys_widgets.save_lilys_widget_states(
+                self.lily_time_in_room_slider,
+                self.lily_mood_slider,
+                self.lily_mood_activity_slider,
+                self.lily_energy_slider,
+                self.lily_time_in_room,
+                self.lily_mood,
+                self.lily_activity,
+                self.lily_energy,
+                self.lily_notes,
+            )
             
             self.settings.setValue(
                 "geometry",
@@ -2297,35 +2264,46 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 self.sat_date,
                 self.sat_note_one,
             )
-            # TODO: AGAIN PLACE THESE IN A SEPARATE MANAGER KKthx self.
-            # RESTORE LILYS MODULE
-            self.lily_time_in_room_slider.setValue(
-                self.settings.value('lily_time_in_room_slider', 0, type=int))
-            
-            self.lily_mood_slider.setValue(
-                self.settings.value('lily_mood_slider', 0, type=int))
-            
-            self.lily_mood_activity_slider.setValue(
-                self.settings.value('lily_mood_activity_slider', 0, type=int))
-            
-            self.lily_energy_slider.setValue(
-                self.settings.value('lily_energy_slider', 0, type=int))
-            
-            self.lily_time_in_room.setValue(
-                self.settings.value('lily_time_in_room', 0, type=int))
-            
-            self.lily_mood.setValue(
-                self.settings.value('lily_mood', 0, type=int))
-            
-            self.lily_activity.setValue(
-                self.settings.value('lily_activity', 0, type=int))
-            
-            self.lily_energy.setValue(
-                self.settings.value('lily_energy', 0, type=int))
-            
-            self.lily_notes.setHtml(
-                self.settings.value('lily_notes', "", type=str))
-            
+            self.settings_manager_lilys_widgets.restore_lilys_widget_states(
+                self.lily_time_in_room_slider,
+                self.lily_mood_slider,
+                self.lily_mood_activity_slider,
+                self.lily_energy_slider,
+                self.lily_time_in_room,
+                self.lily_mood,
+                self.lily_activity,
+                self.lily_energy,
+                self.lily_notes,
+            )
+            # # TODO: AGAIN PLACE THESE IN A SEPARATE MANAGER KKthx self.
+            # # RESTORE LILYS MODULE
+            # self.lily_time_in_room_slider.setValue(
+            #     self.settings.value('lily_time_in_room_slider', 0, type=int))
+            #
+            # self.lily_mood_slider.setValue(
+            #     self.settings.value('lily_mood_slider', 0, type=int))
+            #
+            # self.lily_mood_activity_slider.setValue(
+            #     self.settings.value('lily_mood_activity_slider', 0, type=int))
+            #
+            # self.lily_energy_slider.setValue(
+            #     self.settings.value('lily_energy_slider', 0, type=int))
+            #
+            # self.lily_time_in_room.setValue(
+            #     self.settings.value('lily_time_in_room', 0, type=int))
+            #
+            # self.lily_mood.setValue(
+            #     self.settings.value('lily_mood', 0, type=int))
+            #
+            # self.lily_activity.setValue(
+            #     self.settings.value('lily_activity', 0, type=int))
+            #
+            # self.lily_energy.setValue(
+            #     self.settings.value('lily_energy', 0, type=int))
+            #
+            # self.lily_notes.setHtml(
+            #     self.settings.value('lily_notes', "", type=str))
+            #
             # restore window geometry state
             self.restoreGeometry(
                 self.settings.value("geometry", QByteArray()))

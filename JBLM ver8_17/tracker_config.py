@@ -10,7 +10,7 @@ DATEFORMAT = '%d-%b-%y %I:%M:%S %p'
 FILE_MODE = 'w'
 # for when's ya at the home local. ;)
 # DB_NAME = 'theDBofTracksAugust8th.db'
-DB_NAME = 'TESTtestTESTmeDEEBEE.db'
+DB_NAME = 'theDBofTracksAugust8th.db'
 
 
 COLOR = "color:rgb(255,255,255);font-weight:500;font-size:9pt;"

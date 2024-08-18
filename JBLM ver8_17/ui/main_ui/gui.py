@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(290, 299)
+        MainWindow.resize(290, 305)
         MainWindow.setStyleSheet("QWidget {\n"
 "    font: 11pt \"Helvetica\";\n"
 "    background:#151515;\n"
@@ -2175,7 +2175,7 @@ class Ui_MainWindow(object):
         self.lily_diet_mood_input_container = QtWidgets.QFrame(parent=self.lilyStack)
         self.lily_diet_mood_input_container.setObjectName("lily_diet_mood_input_container")
         self.gridLayout_23 = QtWidgets.QGridLayout(self.lily_diet_mood_input_container)
-        self.gridLayout_23.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_23.setContentsMargins(0, 0, 0, 6)
         self.gridLayout_23.setSpacing(6)
         self.gridLayout_23.setObjectName("gridLayout_23")
         self.lily_diet_frame = QtWidgets.QFrame(parent=self.lily_diet_mood_input_container)
@@ -4405,7 +4405,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuAgenda.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.mainStack.setCurrentIndex(1)
+        self.mainStack.setCurrentIndex(0)
         self.agendaStack.setCurrentIndex(0)
         self.agenda_journal_stack.setCurrentIndex(0)
         self.agenda_data_stack.setCurrentIndex(0)

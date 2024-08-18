@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>290</width>
-    <height>299</height>
+    <height>305</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -845,7 +845,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {background: transp
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_53">
@@ -3686,7 +3686,7 @@ QSlider::groove:horizontal:hover {background:rgba(144,114,144,0.25);}
                <number>0</number>
               </property>
               <property name="bottomMargin">
-               <number>0</number>
+               <number>6</number>
               </property>
               <property name="spacing">
                <number>6</number>
@@ -4317,7 +4317,7 @@ background-color:rgb(188,78,66);
           </property>
           <widget class="QWidget" name="tab_10">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/BECK EXAM/red.png</normaloff>
              <activeon>:/newPrefix/BECK EXAM/1 4.png</activeon>:/newPrefix/BECK EXAM/red.png</iconset>
            </attribute>
@@ -4751,7 +4751,7 @@ QSlider::groove:vertical {background:rgba(243,89,85,0.15);}
           </widget>
           <widget class="QWidget" name="tab_11">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/BECK EXAM/asdfas.png</normaloff>
              <activeon>:/newPrefix/BECK EXAM/asdf.png</activeon>:/newPrefix/BECK EXAM/asdfas.png</iconset>
            </attribute>
@@ -5162,7 +5162,7 @@ QSlider::groove:vertical {background:rgba(171,145,238,0.15);}
           </widget>
           <widget class="QWidget" name="tab_12">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/BECK EXAM/sdfdsfs.png</normaloff>
              <activeon>:/newPrefix/BECK EXAM/asdfsafdsdf.png</activeon>:/newPrefix/BECK EXAM/sdfdsfs.png</iconset>
            </attribute>
@@ -5597,7 +5597,7 @@ background-color: #121212;
           </property>
           <widget class="QWidget" name="tab_4">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/aug6BSL/sleep.png</normaloff>
              <activeon>:/newPrefix/aug6BSL/slept_check.png</activeon>:/newPrefix/aug6BSL/sleep.png</iconset>
            </attribute>
@@ -5661,7 +5661,7 @@ background:rgb(23, 23, 23);
           </widget>
           <widget class="QWidget" name="tab_5">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/aug6BSL/hrs_slept.png</normaloff>
              <activeon>:/newPrefix/aug6BSL/hrs_sleptCheck.png</activeon>:/newPrefix/aug6BSL/hrs_slept.png</iconset>
            </attribute>
@@ -5725,7 +5725,7 @@ background:rgb(23, 23, 23);
           </widget>
           <widget class="QWidget" name="tab_6">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/aug6BSL/wokeuplike.png</normaloff>
              <activeon>:/newPrefix/aug6BSL/like.png</activeon>:/newPrefix/aug6BSL/wokeuplike.png</iconset>
            </attribute>
@@ -5789,7 +5789,7 @@ background:rgb(23, 23, 23);
           </widget>
           <widget class="QWidget" name="tab_7">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/aug6BSL/sleepQualityBlue.png</normaloff>
              <activeon>:/newPrefix/aug6BSL/sleepqual.png</activeon>:/newPrefix/aug6BSL/sleepQualityBlue.png</iconset>
            </attribute>
@@ -5898,7 +5898,7 @@ QTabBar::tab:only-one {
           </property>
           <widget class="QWidget" name="tab_8">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/diet.png</normaloff>
              <activeon>:/newPrefix/dietPunched.png</activeon>:/newPrefix/diet.png</iconset>
            </attribute>
@@ -5971,7 +5971,7 @@ background:rgb(23, 23, 23);
           </widget>
           <widget class="QWidget" name="tab_9">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/liquid_guy.png</normaloff>
              <activeon>:/newPrefix/drankPunchs.png</activeon>:/newPrefix/liquid_guy.png</iconset>
            </attribute>
@@ -6093,7 +6093,7 @@ QTabBar::tab:only-one {
           </property>
           <widget class="QWidget" name="tab">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/blueShowerhead.png</normaloff>
              <activeon>:/newPrefix/Mac App icon 30.png</activeon>:/newPrefix/blueShowerhead.png</iconset>
            </attribute>
@@ -6154,7 +6154,7 @@ background:rgb(23, 23, 23);
           </widget>
           <widget class="QWidget" name="tab_3">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/blueteeth.png</normaloff>
              <activeon>:/newPrefix/teethPressed.png</activeon>:/newPrefix/blueteeth.png</iconset>
            </attribute>
@@ -6215,7 +6215,7 @@ background:rgb(23, 23, 23);
           </widget>
           <widget class="QWidget" name="tab_2">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/blueYogai.png</normaloff>
              <activeon>:/newPrefix/basics2Wh.png</activeon>:/newPrefix/blueYogai.png</iconset>
            </attribute>
@@ -6321,7 +6321,7 @@ QTabBar::tab:only-one {
           </property>
           <widget class="QWidget" name="lily_data_stackPage1">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/lily_walk_norm.png</normaloff>
              <activeon>:/newPrefix/onePaw.png</activeon>:/newPrefix/lily_walk_norm.png</iconset>
            </attribute>
@@ -6468,7 +6468,7 @@ QTabBar::tab:only-one {
           </widget>
           <widget class="QWidget" name="lily_note_table_contain">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/lilynotes1.png</normaloff>
              <activeon>:/newPrefix/lilynoteChecked.png</activeon>:/newPrefix/lilynotes1.png</iconset>
            </attribute>
@@ -6526,7 +6526,7 @@ QTabBar::tab:only-one {
           </widget>
           <widget class="QWidget" name="lily_data_stackPage2">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/lilyasdfas.png</normaloff>
              <activeon>:/newPrefix/Mac App icon 46.png</activeon>:/newPrefix/lilyasdfas.png</iconset>
            </attribute>
@@ -6605,7 +6605,7 @@ QTabBar::tab:only-one {
           </widget>
           <widget class="QWidget" name="lily_data_stackPage3">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/lily_mood_norm.png</normaloff>
              <activeon>:/newPrefix/Mac App icon 50.png</activeon>:/newPrefix/lily_mood_norm.png</iconset>
            </attribute>
@@ -6684,7 +6684,7 @@ QTabBar::tab:only-one {
           </widget>
           <widget class="QWidget" name="lily_data_stackPage4">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/asdsdf.png</normaloff>
              <activeon>:/newPrefix/1 1.png</activeon>:/newPrefix/asdsdf.png</iconset>
            </attribute>
@@ -6790,7 +6790,7 @@ QTabBar::tab:only-one {
           </property>
           <widget class="QWidget" name="tab_13">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/BECK EXAM/red.png</normaloff>
              <activeon>:/newPrefix/BECK EXAM/1 4.png</activeon>:/newPrefix/BECK EXAM/red.png</iconset>
            </attribute>
@@ -6863,7 +6863,7 @@ QTabBar::tab:only-one {
           </widget>
           <widget class="QWidget" name="tab_15">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/BECK EXAM/asdfas.png</normaloff>
              <activeon>:/newPrefix/BECK EXAM/asdf.png</activeon>:/newPrefix/BECK EXAM/asdfas.png</iconset>
            </attribute>
@@ -6936,7 +6936,7 @@ QTabBar::tab:only-one {
           </widget>
           <widget class="QWidget" name="tab_14">
            <attribute name="icon">
-            <iconset resource="../../QtResourcesFeb20/spunkster.qrc">
+            <iconset>
              <normaloff>:/newPrefix/BECK EXAM/sdfdsfs.png</normaloff>
              <activeon>:/newPrefix/BECK EXAM/asdfsafdsdf.png</activeon>:/newPrefix/BECK EXAM/sdfdsfs.png</iconset>
            </attribute>
