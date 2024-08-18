@@ -1,18 +1,18 @@
-# Example configuration settings
-
 # QSettings configurations
 ORGANIZATION_NAME = "polarityAI"
 APPLICATION_NAME = "JBLM_ver8_16"
-# logger_setup
+# log file name
 LOG_FILE = 'JBLM_ver8_16.log'
-PRINGLES = 'JBLM_ver8_16'  # lol the directory made/placed
-DATEFORMAT = '%d-%b-%y %I:%M:%S %p'  # this is how you want it from now on lolol ok?
+# directory
+PRINGLES = 'JBLM_ver8_16'
+# ditfitty
+DATEFORMAT = '%d-%b-%y %I:%M:%S %p'
 FILE_MODE = 'w'
-# database
+# for when's ya at the home local. ;)
 # DB_NAME = 'theDBofTracksAugust8th.db'
-DB_NAME = 'theDBofTracksAugust8th.db'
+DB_NAME = 'TESTtestTESTmeDEEBEE.db'
 
-# COLOR = "color:rgb(210,98,98);font-weight:bold;"
+
 COLOR = "color:rgb(255,255,255);font-weight:500;font-size:9pt;"
 COLOR2 = "color:rgb(255,255,255);font-weight:bold;font-size:9pt;"
 STYLESHEET = """

@@ -1812,34 +1812,61 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             
             self.lily_diet_model = create_and_set_model(
                 "lily_diet_table",
-                self.lily_diet_table)
+                self.lily_diet_table
+            )
             
             self.lily_mood_model = create_and_set_model(
                 "lily_mood_table",
-                self.lily_mood_table)
+                self.lily_mood_table
+            )
             
             self.lily_walk_model = create_and_set_model(
                 "lily_walk_table",
-                self.lily_walk_table)
+                self.lily_walk_table
+            )
             
             self.lily_room_model = create_and_set_model(
                 "lily_in_room_table",
-                self.time_in_room_table)
+                self.time_in_room_table
+            )
             
             self.lily_note_model = create_and_set_model(
                 "lily_notes_table",
-                self.lily_notes_table)
+                self.lily_notes_table
+            )
             
             self.lily_walk_note_model = create_and_set_model(
                 "lily_walk_notes_table",
-                self.lily_walk_note_table)
-            self.sun_model = create_and_set_model("sunday_table", self.sun_table)
-            self.mon_model = create_and_set_model("monday_table", self.mon_table)
-            self.tues_model = create_and_set_model("tuesday_table", self.tues_table)
-            self.wed_model = create_and_set_model("wednesday_table", self.wed_table)
-            self.thurs_model = create_and_set_model("thursday_table", self.thurs_table)
-            self.fri_model = create_and_set_model("friday_table", self.fri_table)
-            self.sat_model = create_and_set_model("saturday_table", self.sat_table)
+                self.lily_walk_note_table
+            )
+            self.sun_model = create_and_set_model(
+                "sunday_table",
+                self.sun_table
+            )
+            self.mon_model = create_and_set_model(
+                "monday_table",
+                self.mon_table
+            )
+            self.tues_model = create_and_set_model(
+                "tuesday_table",
+                self.tues_table
+            )
+            self.wed_model = create_and_set_model(
+                "wednesday_table",
+                self.wed_table
+            )
+            self.thurs_model = create_and_set_model(
+                "thursday_table",
+                self.thurs_table
+            )
+            self.fri_model = create_and_set_model(
+                "friday_table",
+                self.fri_table
+            )
+            self.sat_model = create_and_set_model(
+                "saturday_table",
+                self.sat_table
+            )
         except Exception as e:
             logger.error(f"Error setting up models: {e}", exc_info=True)
     
@@ -1856,7 +1883,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 )
             )
         except Exception as e:
-            logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            logger.error(f"Error deleting wefe records: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1866,7 +1894,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 )
             )
         except Exception as e:
-            logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            logger.error(f"Error deleting cspr records: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1876,7 +1905,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 )
             )
         except Exception as e:
-            logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            logger.error(f"Error deleting sleep records: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1886,7 +1916,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 )
             )
         except Exception as e:
-            logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            logger.error(f"Error deleting total hours slept records: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1896,7 +1927,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 )
             )
         except Exception as e:
-            logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            logger.error(f"Error deleting total hours slept records: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1906,7 +1938,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 )
             )
         except Exception as e:
-            logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            logger.error(f"Error deleting woke up like records : {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1916,7 +1949,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 )
             )
         except Exception as e:
-            logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            logger.error(f"Error deleting sleep quality records : {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1927,6 +1961,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1937,6 +1972,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1947,6 +1983,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1957,6 +1994,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1967,6 +2005,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1977,6 +2016,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1987,6 +2027,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -1997,6 +2038,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -2007,6 +2049,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -2017,6 +2060,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
+            
         try:
             self.actionDelete.triggered.connect(
                 lambda: delete_selected_rows(
@@ -2027,56 +2071,83 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             )
         except Exception as e:
             logger.error(f"Error setting up delete actions: {e}", exc_info=True)
-        self.actionDelete.triggered.connect(
-            lambda: delete_selected_rows(
-                self,
-                'sun_table',
-                'sun_model'
+        try:
+            self.actionDelete.triggered.connect(
+                lambda: delete_selected_rows(
+                    self,
+                    'sun_table',
+                    'sun_model'
+                )
             )
-        )
-        self.actionDelete.triggered.connect(
-            lambda: delete_selected_rows(
-                self,
-                'mon_table',
-                'mon_model'
+        except Exception as e:
+            logger.error(f"{e}", exc_info=True)
+            
+        try:
+            self.actionDelete.triggered.connect(
+                lambda: delete_selected_rows(
+                    self,
+                    'mon_table',
+                    'mon_model'
+                )
             )
-        )
-        self.actionDelete.triggered.connect(
-            lambda: delete_selected_rows(
-                self,
-                'tues_table',
-                'tues_model'
+        except Exception as e:
+            logger.error(f"{e}", exc_info=True)
+            
+        try:
+            self.actionDelete.triggered.connect(
+                lambda: delete_selected_rows(
+                    self,
+                    'tues_table',
+                    'tues_model'
+                )
             )
-        )
-        self.actionDelete.triggered.connect(
-            lambda: delete_selected_rows(
-                self,
-                'wed_table',
-                'wed_model'
+        except Exception as e:
+            logger.error(f"{e}", exc_info=True)
+            
+        try:
+            self.actionDelete.triggered.connect(
+                lambda: delete_selected_rows(
+                    self,
+                    'wed_table',
+                    'wed_model'
+                )
             )
-        )
-        self.actionDelete.triggered.connect(
-            lambda: delete_selected_rows(
-                self,
-                'thurs_table',
-                'thurs_model'
+        except Exception as e:
+            logger.error(f"{e}", exc_info=True)
+            
+        try:
+            self.actionDelete.triggered.connect(
+                lambda: delete_selected_rows(
+                    self,
+                    'thurs_table',
+                    'thurs_model'
+                )
             )
-        )
-        self.actionDelete.triggered.connect(
-            lambda: delete_selected_rows(
-                self,
-                'fri_table',
-                'fri_model'
+        except Exception as e:
+            logger.error(f"{e}", exc_info=True)
+            
+        try:
+            self.actionDelete.triggered.connect(
+                lambda: delete_selected_rows(
+                    self,
+                    'fri_table',
+                    'fri_model'
+                )
             )
-        )
-        self.actionDelete.triggered.connect(
-            lambda: delete_selected_rows(
-                self,
-                'sat_table',
-                'sat_model'
+        except Exception as e:
+            logger.error(f"{e}", exc_info=True)
+            
+        try:
+            self.actionDelete.triggered.connect(
+                lambda: delete_selected_rows(
+                    self,
+                    'sat_table',
+                    'sat_model'
+                )
             )
-        )
-    
+        except Exception as e:
+            logger.error(f"{e}", exc_info=True)
+            
     def save_state(self):
         """
         Saves the state of the main window.
@@ -2089,17 +2160,42 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
 
         """
         try:
-            self.settings_manager_sunday.save_sun_journal(self.sun_date, self.sun_note_one)
+            self.settings_manager_sunday.save_sun_journal(
+                self.sun_date,
+                self.sun_note_one
+            )
             
-            self.settings_manager_monday.save_mon_journal(self.mon_date, self.mon_note_one, )
+            self.settings_manager_monday.save_mon_journal(
+                self.mon_date,
+                self.mon_note_one,
+            )
             
-            self.settings_manager_tuesday.save_tues_journal(self.tues_date,
-                                                            self.tues_note_one, )
-            self.settings_manager_wednesday.save_wed_journal(self.wed_date, self.wed_note_one)
-            self.settings_manager_thursday.save_thurs_journal(self.thurs_date,
-                                                              self.thurs_note_one, )
-            self.settings_manager_friday.save_fri_journal(self.fri_date, self.fri_note_one, )
-            self.settings_manager_saturday.save_sat_journal(self.sat_date, self.sat_note_one, )
+            self.settings_manager_tuesday.save_tues_journal(
+                self.tues_date,
+                self.tues_note_one,
+            )
+            
+            self.settings_manager_wednesday.save_wed_journal(
+                self.wed_date,
+                self.wed_note_one
+            )
+            
+            self.settings_manager_thursday.save_thurs_journal(
+                self.thurs_date,
+                self.thurs_note_one,
+            )
+            
+            self.settings_manager_friday.save_fri_journal(
+                self.fri_date,
+                self.fri_note_one,
+            )
+            
+            self.settings_manager_saturday.save_sat_journal(
+                self.sat_date,
+                self.sat_note_one,
+            )
+            
+            # TODO: Set these up with a sexy settingsManager module k boo(self? ok)
             self.settings.setValue(
                 'lily_time_in_room_slider',
                 self.lily_time_in_room_slider.value())
@@ -2143,6 +2239,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             self.settings.setValue(
                 "windowState",
                 self.saveState())
+            
         except Exception as e:
             logger.error(f"Geometry not good fail. {e}", exc_info=True)
     
@@ -2158,14 +2255,35 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             None
         """
         try:
-            self.settings_manager_sunday.restore_sun_journal(self.sun_date, self.sun_note_one, )
-            self.settings_manager_monday.restore_mon_journal(self.mon_date, self.mon_note_one, )
-            self.settings_manager_tuesday.restore_tues_journal(self.tues_date, self.tues_note_one, )
-            self.settings_manager_wednesday.restore_wed_journal(self.wed_date, self.wed_note_one, )
-            self.settings_manager_thursday.restore_thurs_journal(self.thurs_date,
-                                                                 self.thurs_note_one)
-            self.settings_manager_friday.restore_fri_journal(self.fri_date, self.fri_note_one, )
-            self.settings_manager_saturday.restore_sat_journal(self.sat_date, self.sat_note_one, )
+            self.settings_manager_sunday.restore_sun_journal(
+                self.sun_date,
+                self.sun_note_one,
+            )
+            self.settings_manager_monday.restore_mon_journal(
+                self.mon_date,
+                self.mon_note_one,
+            )
+            self.settings_manager_tuesday.restore_tues_journal(
+                self.tues_date,
+                self.tues_note_one,
+            )
+            self.settings_manager_wednesday.restore_wed_journal(
+                self.wed_date,
+                self.wed_note_one,
+            )
+            self.settings_manager_thursday.restore_thurs_journal(
+                self.thurs_date,
+                self.thurs_note_one
+            )
+            self.settings_manager_friday.restore_fri_journal(
+                self.fri_date,
+                self.fri_note_one,
+            )
+            self.settings_manager_saturday.restore_sat_journal(
+                self.sat_date,
+                self.sat_note_one,
+            )
+            # TODO: AGAIN PLACE THESE IN A SEPARATE MANAGER KKthx self.
             # RESTORE LILYS MODULE
             self.lily_time_in_room_slider.setValue(
                 self.settings.value('lily_time_in_room_slider', 0, type=int))
