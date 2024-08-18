@@ -141,8 +141,10 @@ class TableInputDialog(QDialog):
         columns_input (QLineEdit): Input field for the amount columns.
         ok_button (QPushButton): OK button for accepting the input.
         cancel_button (QPushButton): Cancel button for rejecting the input.
+
+    Methods:
+        get_dimensions(): Get the dimensions entered by the user.
     """
-    
     def __init__(self,
                  parent=None):
         super().__init__(parent)
@@ -311,15 +313,21 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         self.open_to_date()
         self.highlight_current_date()
         self.restore_visibility_state()
-        self.auto_date_time_widgets()
-        
-        self.calculate_total_hours_slept()
-        
-        self.init_hydration_tracker()
-        
+        self.auto_date_time_widgets()        
+        self.calculate_total_hours_slept()        
+        self.init_hydration_tracker()        
         self.slider_set_spinbox()
     
     def sort_tables_by_date_desc(self):
+        """
+        Sorts the table views in descending order based on the date column.
+
+        Args:
+            self: The instance of the class.
+
+        Returns:
+            None
+        """
         table_views = [self.wefe_tableview, self.cspr_tableview, self.mdmmr_tableview,
                        self.sleep_tableview, self.total_hours_slept_tableview,
                        self.woke_up_like_tableview, self.sleep_quality_tableview, self.shower_table,
@@ -337,7 +345,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
     def commits_setup(self):
         """
         Sets up the methods with their buttons/actions to commit data relevant to the module. 
-        
+            
         This method calls several other methods to set up commits for different activities,
         such as sleep, total hours, woke up like, sleep quality, diet data, shower, exercise,
         teethbrush, lily diet data, lily mood data, lily walk, lily in room, lily notes data,
@@ -413,6 +421,10 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             logger.error(f"An error occurred in on_page_changed {e}", exc_info=True)
     
     def close_app(self):
+        """
+        Closes the application.
+        """
+        self.close()
         self.close()
     
     def save_visibility_state(self,
@@ -431,19 +443,21 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         settings = QSettings(tkc.ORGANIZATION_NAME, tkc.APPLICATION_NAME)
         settings.setValue(key, state)
     
-    def restore_visibility_state(self):
-        """
-        Restores the visibility state of various UI elements based on the saved settings.
+    def restore_visibility_state(self):        
+        def restore_visibility_state(self):
+            """
+            Restores the visibility state of the week frame based on the stored settings.
 
-        The visibility state of the following UI elements will be restored:
-        - week_frame
+            The visibility state of the week frame is retrieved from the stored settings using the key 'week_frame'.
+            If the value is not found in the settings, the default value of False is used.
+            The retrieved value is then set as the visibility state of the week frame.
 
-        The visibility state is retrieved from the saved settings using QSettings.
+            Parameters:
+                self (App): The current instance of the App class.
 
-        Returns:
-            None
-        """
-        
+            Returns:
+                None
+            """
         self.week_frame.setVisible(
             self.settings.value(
                 'week_frame',
