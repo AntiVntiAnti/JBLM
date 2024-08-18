@@ -1050,8 +1050,8 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
     def switch_bds_page(self):
         self.switch_page(
             self.bds_page,
-            300,
-            330
+            290,
+            325
         )
     
     def switch_lilys_mod(self):
