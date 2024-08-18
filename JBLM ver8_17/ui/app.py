@@ -233,6 +233,12 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                  *args,
                  **kwargs):
         super().__init__(*args, **kwargs)
+        self.sat_model = None
+        self.fri_model = None
+        self.wed_model = None
+        self.thurs_model = None
+        self.mon_model = None
+        self.tues_model = None
         self.sun_model = None
         self.date_widgets = None
         self.date_highlighter = None
@@ -381,7 +387,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         try:
             self.actionInjectDate.triggered.connect(self.inject_date)
             self.actionInjectTime.triggered.connect(self.inject_time)
-
+            
             self.actionSave.triggered.connect(self.save_current_text)
             self.actionPrint.triggered.connect(self.print_current_textedit)
             self.agendaStack.currentChanged.connect(self.on_page_changed)
@@ -392,7 +398,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             self.actionExit.triggered.connect(self.close_app)
         except Exception as e:
             logger.error(f"Error in app_operation block : {e}", exc_info=True)
-            
+    
     def on_page_changed(self,
                         index):
         """
@@ -445,7 +451,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 type=bool
             )
         )
-            
+    
     #########################################################################
     # highlight_current_date DATE MAPPING METHOD
     #########################################################################
@@ -571,7 +577,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                     self.TextFormatJustify.justify_text
                 )
             )
-
+        
         except Exception as e:
             logger.error(f"Error occurred during formatting operations, {e}", exc_info=True)
     
@@ -741,6 +747,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             return table_html
         except Exception as e:
             logger.error(f"{e}")
+    
     #########################################################################
     # Print support
     #########################################################################
@@ -892,8 +899,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                 # Main Stack Navigation
                 for action, page in alpha_stack_navigation_actions.items():
                     action.triggered.connect(
-                        lambda _,
-                               p=page: change_alpha_stack_page(self.agendaStack, p))
+                        lambda _, p=page: change_alpha_stack_page(self.agendaStack, p))
             except Exception as e:
                 logger.error(f"An error occurred when setting up stack navigation {e}",
                              exc_info=True)
@@ -901,20 +907,17 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             # cmd + 1-7, 1 being sunday, 7 being saturday :D
             for action, page in action_to_page.items():
                 action.triggered.connect(
-                    lambda _,
-                           p=page: change_agenda_stack_page(self.agenda_journal_stack, p))
+                    lambda _, p=page: change_agenda_stack_page(self.agenda_journal_stack, p))
             
             # BUTTONS for Agenda's SideBar
             # option + 1-7 (1 being sunday, this changes the data stack as below)
             for button, page in agenda_navigation_btn.items():
                 button.clicked.connect(
-                    lambda _,
-                           p=page: change_agenda_stack_page(self.agenda_journal_stack, p))
+                    lambda _, p=page: change_agenda_stack_page(self.agenda_journal_stack, p))
             # ACTION for DATA page
             for action, page in action_to_data_page.items():
                 action.triggered.connect(
-                    lambda _,
-                           p=page: change_agenda_stack_page(self.agenda_data_stack, p))
+                    lambda _, p=page: change_agenda_stack_page(self.agenda_data_stack, p))
         
         except Exception as e:
             logger.error(f"An error has occurred: Navigation \n : {e}", exc_info=True)
@@ -958,10 +961,18 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
 
         """
         try:
-            self.eight_ounce_cup.clicked.connect(lambda: self.commit_hydration(8))
-            self.sixteen_ounce_cup.clicked.connect(lambda: self.commit_hydration(16))
-            self.twenty_four_ounce_cup.clicked.connect(lambda: self.commit_hydration(24))
-            self.thirty_two_ounce_cup.clicked.connect(lambda: self.commit_hydration(32))
+            self.eight_ounce_cup.clicked.connect(
+                lambda: self.commit_hydration(8)
+            )
+            self.sixteen_ounce_cup.clicked.connect(
+                lambda: self.commit_hydration(16)
+            )
+            self.twenty_four_ounce_cup.clicked.connect(
+                lambda: self.commit_hydration(24)
+            )
+            self.thirty_two_ounce_cup.clicked.connect(
+                lambda: self.commit_hydration(32)
+            )
         except Exception as e:
             logger.error(f"Error initializing hydration tracker buttons: {e}", exc_info=True)
     
@@ -1010,9 +1021,9 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
     # ####################################################################################
     
     def switch_page2(self,
-                    page_widget,
-                    width,
-                    height):
+                     page_widget,
+                     width,
+                     height):
         self.agendaStack.setCurrentWidget(page_widget)
         self.setFixedSize(width, height)
     
@@ -1221,7 +1232,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         
         except Exception as e:
             logger.error(f"Error occurred while calculating total hours slept {e}", exc_info=True)
-
+    
     def inject_table(self):
         """
         Opens a dialog to input table dimensions and inserts an HTML table into the focused QTextEdit widget.
@@ -1241,7 +1252,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
                     cursor.insertHtml(html)
         except Exception as e:
             logger.error(f"{e}", exc_info=True)
-            
+    
     def stack_navigation(self):
         """
         Handles the stack navigation for the main window.
@@ -1276,17 +1287,12 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         except Exception as e:
             logger.error(f"An error has occurred: {e}", exc_info=True)
     
-    # SUNDAY
-    # /////////////////////////////////////////////////////////////////////////////////////////////
+    # ##########################################################################################
+    # ##########################################################################################
+    #           COMMITS COMMITS COMMITS COMMITS COMMITS COMMITS COMMITS COMMITS COMMITS
+    # ##########################################################################################
+    # ##########################################################################################
     def add_sunday_data(self):
-        """
-        Connects the click event of the sun_commit_btn to the agenda_data_sunday function,
-        passing the necessary data and the insert_into_table_sunday method.
-
-        Raises:
-            Exception: If there is an error while connecting the click event or executing the
-            function.
-        """
         try:
             self.actionSunday.triggered.connect(lambda: agenda_data_sunday(self, {
                 "sun_date": "sun_date", "sun_note_one": "sun_note_one", "model": "sun_model",
@@ -1295,18 +1301,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         except Exception as e:
             logger.error(f"Unable to commit Sunday's Journ, sunday forfeits!{e}", exc_info=True)
     
-    # MONDAY
-    # /////////////////////////////////////////////////////////////////////////////////////////////
     def add_monday_data(self):
-        """
-        Connects the click event of the 'mon_commit_btn' button to the 'agenda_data_monday'
-        function,
-        passing the necessary parameters and inserting the data into the Monday table.
-
-        Raises:
-            Exception: If there is an error while connecting the click event or inserting the data.
-
-        """
         try:
             self.actionMonday.triggered.connect(lambda: agenda_data_monday(self, {
                 "mon_date": "mon_date", "mon_note_one": "mon_note_one", "model": "mon_model",
@@ -1316,18 +1311,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
             logger.error(f"Unable to commit Monday's Journ, monday forfeits! {e}",
                          exc_info=True)
     
-    # TUESDAY
-    # /////////////////////////////////////////////////////////////////////////////////////////////
     def add_tuesday_data(self):
-        """
-        Connects the click event of the 'tues_commit_btn' button to the 'agenda_data_tuesday'
-        function,
-        passing the necessary data and the 'insert_into_table_tuesday' method from the
-        'db_manager' object.
-
-        Raises:
-            Exception: If an error occurs during the connection or execution of the function.
-        """
         try:
             self.actionTuesday.triggered.connect(lambda: agenda_data_tuesday(self, {
                 "tues_date": "tues_date", "tues_note_one": "tues_note_one",
@@ -1336,17 +1320,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         except Exception as e:
             logger.error(f"An Error has occurred {e}", exc_info=True)
     
-    # WEDNESDAY
-    # /////////////////////////////////////////////////////////////////////////////////////////////
     def add_wednesday_data(self):
-        """
-        Connects the clicked signal of the wed_commit_btn to the agenda_data_wednesday function,
-        passing the necessary data and the insert_into_table_wednesday method from the db_manager.
-
-        Raises:
-            Exception: If an error occurs during the connection.
-
-        """
         try:
             self.actionWednesday.triggered.connect(lambda: agenda_data_wednesday(self, {
                 "wed_date": "wed_date", "wed_note_one": "wed_note_one", "model": "wed_model",
@@ -1354,21 +1328,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         except Exception as e:
             logger.error(f"An Error has occurred {e}", exc_info=True)
     
-    # THURSDAY
-    # /////////////////////////////////////////////////////////////////////////////////////////////
     def add_thursday_data(self):
-        """
-        Connects the 'clicked' signal of the 'thurs_commit_btn' button to the
-        'agenda_data_thursday' function,
-        passing the necessary data and the 'insert_into_table_thursday' method from the
-        'db_manager' object.
-
-        Args:
-            self: The current instance of the class.
-
-        Returns:
-            None
-        """
         try:
             self.actionThursday.triggered.connect(lambda: agenda_data_thursday(self, {
                 "thurs_date": "thurs_date", "thurs_note_one": "thurs_note_one",
@@ -1377,19 +1337,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         except Exception as e:
             logger.error(f"An Error has occurred {e}", exc_info=True)
     
-    # FRIDAY
-    # /////////////////////////////////////////////////////////////////////////////////////////////
     def add_friday_data(self):
-        """
-        Connects the 'clicked' signal of the 'fri_commit_btn' button to the 'agenda_data_friday' function,
-        passing the necessary arguments and calling the 'insert_into_table_friday' method of the 'db_manager' object.
-
-        Args:
-            self: The current instance of the class.
-
-        Returns:
-            None
-        """
         try:
             self.actionFriday.triggered.connect(lambda: agenda_data_friday(self, {
                 "fri_date": "fri_date", "fri_note_one": "fri_note_one", "model": "fri_model",
@@ -1397,22 +1345,7 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         except Exception as e:
             logger.error(f"An Error has occurred {e}", exc_info=True)
     
-    # SATURDAY
-    # /////////////////////////////////////////////////////////////////////////////////////////////
     def add_saturday_data(self):
-        """
-        Connects the `clicked` signal of the `sat_commit_btn` button to the `agenda_data_saturday` function,
-        passing the necessary arguments and calling the `insert_into_table_saturday` method of `db_manager`.
-
-        Args:
-            self: The instance of the main window.
-
-        Raises:
-            Exception: If an error occurs during the execution.
-
-        Returns:
-            None
-        """
         try:
             self.actionSaturday.triggered.connect(lambda: agenda_data_saturday(self, {
                 "sat_date": "sat_date", "sat_note_one": "sat_note_one", "model": "sat_model",
@@ -1420,9 +1353,6 @@ class MainWindow(FramelessWindow, QtWidgets.QMainWindow, Ui_MainWindow):
         except Exception as e:
             logger.error(f"An Error has occurred {e}", exc_info=True)
     
-    # ######################################################################################
-    # SLEEP COMMIT
-    # ######################################################################################
     def add_sleep_data(self):
         """
         Connects the 'Commit Sleep' action to the 'add_sleep_data' function and inserts the sleep data into the sleep table.
